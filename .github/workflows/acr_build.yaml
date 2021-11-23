@@ -2,6 +2,7 @@ name: build_hello_world
 on:
   push:
     paths:
+      - ".github/workflows/acr_buld.yaml"
       - "images/hello-world/**"
 jobs:
   build:
@@ -9,7 +10,7 @@ jobs:
     steps:
       - name: ACR build
         id: acr
-        uses: azure/acr-build@v1
+        uses: azure/acr-build
         with:
           service_principal: ${{ secrets.SERVICE_PRINCIPAL }}
           service_principal_password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
