@@ -1,0 +1,20 @@
+name: build_hello_world
+on:
+  push:
+    paths:
+      - "images/hello-world/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ACR build
+        id: acr
+        uses: azure/acr-build@v1
+        with:
+          service_principal: ${{ secrets.SERVICE_PRINCIPAL }}
+          service_principal_password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
+          tenant: ${{ secrets.TENANT }}
+          registry: acrtjs01
+          repository: hello-world
+          image: v1
+          folder: ./images/hello-world
