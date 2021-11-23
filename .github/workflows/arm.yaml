@@ -1,4 +1,8 @@
-on: [push]
+on:   
+  push:
+    paths:
+      - ".github/workflows/arm.yaml"
+      - "bicep/**"
 name: Deploy Bicep Templates
 jobs:
   build-and-deploy:
