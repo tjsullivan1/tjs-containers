@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: ACR build
         id: acr
-        uses: azure/acr-build
+        uses: tjsullivan1/acr-build@v1
         with:
           service_principal: ${{ secrets.SERVICE_PRINCIPAL }}
           service_principal_password: ${{ secrets.SERVICE_PRINCIPAL_PASSWORD }}
